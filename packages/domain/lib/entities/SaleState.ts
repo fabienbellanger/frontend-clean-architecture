@@ -1,5 +1,5 @@
 export enum SaleState {
-    paid,
-    partially_paid,
-    open,
+    paid= "paid",
+    partially_paid= "partially_paid",
+    open= "open",
 }
