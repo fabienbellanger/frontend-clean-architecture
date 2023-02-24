@@ -1,0 +1,13 @@
+{
+  "name": "@frontend-clean-architecture/root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build"
+  },
+  "devDependencies": {
+    "lerna": "^6.5.1"
+  }
+}

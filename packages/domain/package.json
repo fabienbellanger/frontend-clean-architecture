@@ -1,0 +1,31 @@
+{
+  "name": "@frontend-clean-architecture/domain",
+  "version": "1.0.0",
+  "description": "Application domain couch",
+  "author": "Fabien Bellanger <fabien.bellanger@apitic.com>",
+  "homepage": "https://github.com/fabienbellanger/frontend-clean-architecture#readme",
+  "license": "ISC",
+  "main": "dist/src/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabienbellanger/frontend-clean-architecture.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node tests/index.test.js",
+    "prepublish": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "bugs": {
+    "url": "https://github.com/fabienbellanger/frontend-clean-architecture/issues"
+  }
+}
