@@ -13,10 +13,10 @@ export class CreateSaleUseCase {
         } else {
             const sale = new SaleBuilder()
                 .withId(request.id)
-                .withDate(new Date(request.date)) // FIXME: Not valid
-                // .withPriceAti(request.priceAti)
-                // .withState(request.state)
-                // .withLines(request.lines)
+                .withDate(request.dateFromString())
+                .withPriceAti(request.priceFromString())
+                .withState(request.stateFromString())
+                .withLines(request.linesFromString())
                 .build();
             await this.saleRepository.CreateSale(sale);
             presenter.notifySaleCreated(sale);

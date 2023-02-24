@@ -9,6 +9,7 @@ export * from './entities/SaleState';
 // Use cases
 export * from './usecases/GetSaleUseCase';
 export * from './usecases/GetSalesUseCase';
+export * from './usecases/CreateSaleUseCase';
 
 // Ports - Repositories
 export * from './ports/repositories/SaleRepository';

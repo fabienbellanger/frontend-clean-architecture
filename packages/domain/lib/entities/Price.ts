@@ -1,4 +1,4 @@
-export interface Price {
-    value: number;
-    currency: string;
+export class Price {
+    constructor(public value: number, public currency: string) {
+    }
 }
