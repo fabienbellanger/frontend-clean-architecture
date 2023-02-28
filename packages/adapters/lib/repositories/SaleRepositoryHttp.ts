@@ -3,18 +3,14 @@ import {HttpClient, SaleDto, SaleMapper} from "@frontend-clean-architecture/adap
 
 
 export class SaleRepositoryHttp implements SaleRepository {
-    private baseUrl = 'http://localhost/api/v1';
-
-    constructor(private http: HttpClient, private saleRepository: SaleRepository) {}
+    constructor(private http: HttpClient) {}
 
     getSales(): Promise<Sale[]> {
         return Promise.reject('unimplemented yet!');
     }
 
     getSale(id: string): Promise<Sale> {
-        return this.saleRepository.getSale(id)
-            .then((sale) => this.http.get<SaleDto>(
-                `${this.baseUrl}/sales/${sale.id}`))
+        return this.http.get<SaleDto>(`/sales/${id}`)
             .then((res) => SaleMapper.toSaleDomain(res))
     }
 }
