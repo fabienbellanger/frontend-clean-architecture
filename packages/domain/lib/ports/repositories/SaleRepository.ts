@@ -1,7 +1,6 @@
-import {Sale} from "../../entities/Sale";
+import {Sale} from "../../entities";
 
 export interface SaleRepository {
-    GetSales(): Promise<Sale[]>;
-    GetSale(id: string): Promise<Sale | null>;
-    CreateSale(sale: Sale): Promise<void>;
+    getSales(): Promise<Sale[]>;
+    getSale(id: string): Promise<Sale>;
 }

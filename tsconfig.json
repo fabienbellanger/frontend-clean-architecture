@@ -18,10 +18,17 @@
     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
+    "noEmit": true,
     "paths": {
       "@frontend-clean-architecture/domain": [
-        "domain/src"
+        "domain/lib"
       ],
+      "@frontend-clean-architecture/adapters": [
+        "adapters/lib"
+      ],
+      "@frontend-clean-architecture/vuejs": [
+        "infrastructure/vuejs/src"
+      ]
     }
   }
 }

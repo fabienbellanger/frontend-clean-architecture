@@ -1,5 +1,5 @@
-import { Price } from "./Price";
-import { SaleState } from "./SaleState";
+import {Price} from "./Price";
+import {SaleState} from "./SaleState";
 import {SaleLine} from "./SaleLine";
 
 export interface Sale {

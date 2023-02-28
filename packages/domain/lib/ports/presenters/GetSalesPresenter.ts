@@ -1,5 +1,5 @@
-import {Sale} from "../../entities/Sale";
+import {Sale} from "../../entities";
 
 export interface GetSalesPresenter {
-    displaySales(sales: Sale[]): void
+    displaySales(sales: Sale[]): void;
 }

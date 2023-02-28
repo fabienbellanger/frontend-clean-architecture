@@ -1,6 +1,6 @@
-import {Sale} from "../../entities/Sale";
+import {Sale} from "../../entities";
 
 export interface CreateSalePresenter {
-    notifySaleCreated(sale: Sale): void
-    notifyNewSaleError(error: Error): void
+    notifySaleCreated(sale: Sale): void;
+    notifyNewSaleError(error: Error): void;
 }

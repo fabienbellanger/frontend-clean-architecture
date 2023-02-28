@@ -5,13 +5,14 @@
   "author": "Fabien Bellanger <fabien.bellanger@apitic.com>",
   "homepage": "https://github.com/fabienbellanger/frontend-clean-architecture#readme",
   "license": "ISC",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "tests"
   },
   "files": [
-    "lib"
+    "dist/**/*"
   ],
   "repository": {
     "type": "git",
@@ -24,8 +25,5 @@
   },
   "devDependencies": {
     "typescript": "^4.9.5"
-  },
-  "bugs": {
-    "url": "https://github.com/fabienbellanger/frontend-clean-architecture/issues"
   }
 }

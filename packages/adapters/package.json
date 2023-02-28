@@ -1,0 +1,32 @@
+{
+  "name": "@frontend-clean-architecture/adapters",
+  "version": "1.0.0",
+  "description": "Application adapter couch",
+  "author": "Fabien Bellanger <fabien.bellanger@apitic.com>",
+  "homepage": "https://github.com/fabienbellanger/frontend-clean-architecture#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabienbellanger/frontend-clean-architecture.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node tests/index.test.js",
+    "prepublish": "tsc"
+  },
+  "dependencies": {
+    "@frontend-clean-architecture/domain": "1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}
