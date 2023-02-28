@@ -12,7 +12,7 @@ export const dependencies = (app: App) => {
         baseUrl: 'http://localhost/api/v1',
         // Get method
         get<T>(url: string): Promise<T> {
-            return fetch(url).then(value => value.json());
+            return fetch(url).then(value => value.json()); // Can use Axios instead
         }
     };
 

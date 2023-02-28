@@ -8,7 +8,7 @@ export class GetSaleUseCase {
     async execute(request: GetSaleRequest, presenter: GetSalePresenter) {
         presenter.displayLoading();
 
-        const sale = await this.saleRepository.getSale(request.id);
+        const sale = await this.saleRepository.getSale(request.id); // TODO: Manage error (new function in presenter)
         presenter.displaySale(sale);
     }
 }
