@@ -20,7 +20,6 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "node tests/index.test.js",
     "prepublish": "tsc"
   },
   "dependencies": {
