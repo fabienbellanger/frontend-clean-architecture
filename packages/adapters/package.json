@@ -20,12 +20,16 @@
   },
   "scripts": {
     "build": "tsc",
+    "test": "jest",
     "prepublish": "tsc"
   },
   "dependencies": {
     "@frontend-clean-architecture/domain": "1.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.5",
     "typescript": "^4.9.5"
   }
 }

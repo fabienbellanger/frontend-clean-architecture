@@ -9,6 +9,16 @@ export class GetSalePresenterBuilder {
         }
     }
 
+    withDisplaySale(displaySale: (sale: Sale) => void)  {
+        this.displaySale = displaySale;
+        return this;
+    }
+
+    withDisplayError(displayError: (err: Error) => void)  {
+        this.displayError = displayError;
+        return this;
+    }
+
     private displaySale: (sale: Sale) => void = () => null;
 
     private displayLoading: () => void = () => null;

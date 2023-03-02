@@ -6,6 +6,11 @@ export class SaleRepositoryBuilder {
         return this;
     }
 
+    withGetSales(getSales: () => Promise<Sale[]>) {
+        this.getSales = getSales;
+        return this;
+    }
+
     build(): SaleRepository {
         return {
             getSale: this.getSale,
@@ -15,11 +20,5 @@ export class SaleRepositoryBuilder {
 
     private getSales: () => Promise<Sale[]> = () => Promise.resolve([]);
 
-    private getSale: (id: string) => Promise<Sale> = () => Promise.resolve(new SaleBuilder()
-        .withId('1')
-        .withDate(new Date())
-        .withState(SaleState.open)
-        .withPriceAti(new Price(10.0, 'EUR'))
-        .withLines([])
-        .build());
+    private getSale: (id: string) => Promise<Sale> = () => Promise.resolve(new Sale('1', new Date(), 10.0, SaleState.open, []));
 }

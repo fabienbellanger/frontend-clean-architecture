@@ -6,7 +6,8 @@ export class SaleRepositoryHttp implements SaleRepository {
     constructor(private http: HttpClient) {}
 
     getSales(): Promise<Sale[]> {
-        return Promise.reject('unimplemented yet!');
+        return this.http.get<SaleDto[]>(`/sales`)
+            .then((res) => res.map(sale => SaleMapper.toSaleDomain(sale)))
     }
 
     getSale(id: string): Promise<Sale> {
