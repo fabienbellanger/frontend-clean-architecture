@@ -1,4 +1,4 @@
-import {Price, Sale, SaleBuilder, SaleRepository, SaleState} from "@frontend-clean-architecture/domain";
+import {Sale, SaleRepository, SaleState} from "@frontend-clean-architecture/domain";
 
 export class SaleRepositoryBuilder {
     withGetSale(getSale: (id: string) => Promise<Sale>) {
