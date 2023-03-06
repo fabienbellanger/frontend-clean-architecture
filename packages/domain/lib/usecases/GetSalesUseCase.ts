@@ -1,5 +1,5 @@
-import {SaleRepository} from "../ports";
-import {GetSalesPresenter} from "../ports";
+import type {SaleRepository} from "../ports";
+import type {GetSalesPresenter} from "../ports";
 
 export class GetSalesUseCase {
     constructor(private saleRepository: SaleRepository) {}

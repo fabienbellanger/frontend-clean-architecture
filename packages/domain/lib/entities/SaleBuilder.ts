@@ -1,7 +1,7 @@
-import {Price} from "./Price";
-import {SaleState} from "./SaleState";
-import {SaleLine} from "./SaleLine";
-import {Sale} from "./Sale";
+import type {Price} from "./Price";
+import type {SaleState} from "./SaleState";
+import type {SaleLine} from "./SaleLine";
+import type {Sale} from "./Sale";
 
 export class SaleBuilder {
     private id!: string;

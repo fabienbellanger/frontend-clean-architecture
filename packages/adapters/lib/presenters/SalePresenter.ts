@@ -1,4 +1,4 @@
-import {GetSalePresenter, Sale} from "@frontend-clean-architecture/domain";
+import type {GetSalePresenter, Sale} from "@frontend-clean-architecture/domain";
 import {Presenter} from "./Presenter";
 
 export class SalePresenterVM {

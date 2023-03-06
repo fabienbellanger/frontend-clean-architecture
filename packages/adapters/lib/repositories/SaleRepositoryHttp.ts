@@ -1,5 +1,6 @@
-import {Sale, SaleRepository} from "@frontend-clean-architecture/domain";
-import {HttpClient, SaleDto, SaleMapper} from "@frontend-clean-architecture/adapters";
+import type {Sale, SaleRepository} from "@frontend-clean-architecture/domain";
+import type {HttpClient, SaleDto} from "@frontend-clean-architecture/adapters";
+import {SaleMapper} from "@frontend-clean-architecture/adapters";
 
 
 export class SaleRepositoryHttp implements SaleRepository {
@@ -7,11 +8,11 @@ export class SaleRepositoryHttp implements SaleRepository {
 
     getSales(): Promise<Sale[]> {
         return this.http.get<SaleDto[]>(`/sales`)
-            .then((res) => res.map(sale => SaleMapper.toSaleDomain(sale)))
+            .then((res: SaleDto[]) => res.map(sale => SaleMapper.toSaleDomain(sale)))
     }
 
     getSale(id: string): Promise<Sale> {
         return this.http.get<SaleDto>(`/sales/${id}`)
-            .then((res) => SaleMapper.toSaleDomain(res))
+            .then((res: SaleDto) => SaleMapper.toSaleDomain(res))
     }
 }

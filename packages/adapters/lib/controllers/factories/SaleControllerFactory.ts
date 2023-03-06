@@ -1,4 +1,4 @@
-import {GetSaleUseCase} from "@frontend-clean-architecture/domain";
+import type {GetSaleUseCase} from "@frontend-clean-architecture/domain";
 import {SaleController, SalePresenter} from "@frontend-clean-architecture/adapters";
 
 export class SaleControllerFactory {

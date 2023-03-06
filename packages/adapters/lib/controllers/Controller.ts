@@ -1,4 +1,4 @@
-import {Presenter, Subscriber} from "../presenters";
+import type {Presenter, Subscriber} from "../presenters";
 
 export abstract class Controller<T> {
     protected constructor(protected presenter: Presenter<T>) {}

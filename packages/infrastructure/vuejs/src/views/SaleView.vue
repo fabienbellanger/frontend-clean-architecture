@@ -1,6 +1,6 @@
 <template>
     <div class="about">
-        <h1>Sale ID from query paremeter: {{id}}</h1>
+        <h1>Sale ID from query parameter: {{saleId}}</h1>
         <br>
         <h2 v-if="vm.loading">Chargement en cours...</h2>
         <h2 v-else-if="vm.error" style="color: red">Error: {{vm.error}}</h2>
@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, inject, onMounted, ref } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import {SALE_CONTROLLER_FACTORY} from "@/DependencyInjection";
 import type {SaleController} from "@frontend-clean-architecture/adapters/lib";

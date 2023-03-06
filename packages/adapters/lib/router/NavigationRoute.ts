@@ -1,4 +1,4 @@
-import {Sale} from "@frontend-clean-architecture/domain";
+import type {Sale} from "@frontend-clean-architecture/domain";
 
 
 export type NavigationRouteURL = string;

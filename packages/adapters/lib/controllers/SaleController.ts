@@ -1,5 +1,5 @@
 import {Controller} from "./Controller";
-import {SalePresenter, SalePresenterVM} from "../presenters";
+import type {SalePresenter, SalePresenterVM} from "../presenters";
 import {GetSaleUseCase, GetSaleRequest} from "@frontend-clean-architecture/domain";
 
 export class SaleController extends Controller<SalePresenterVM> {

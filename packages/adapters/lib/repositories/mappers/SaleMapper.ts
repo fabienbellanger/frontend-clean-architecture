@@ -1,5 +1,5 @@
 import {Price, Sale, SaleState} from '@frontend-clean-architecture/domain';
-import {SaleDto} from "../dto/SaleDto";
+import type {SaleDto} from "../dto/SaleDto";
 
 export class SaleMapper {
     static toSaleDomain(sale: SaleDto): Sale {

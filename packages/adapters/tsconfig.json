@@ -3,7 +3,4 @@
   "compilerOptions": {
     "outDir": "./dist"
   },
-  "files": [
-    "dist/index.ts"
-  ]
 }

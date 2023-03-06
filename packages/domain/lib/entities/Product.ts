@@ -1,4 +1,4 @@
-import {Price} from "./Price";
+import type {Price} from "./Price";
 
 export interface Product {
     id: string;

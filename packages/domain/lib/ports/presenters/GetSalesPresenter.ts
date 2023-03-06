@@ -1,4 +1,4 @@
-import {Sale} from "../../entities";
+import type {Sale} from "../../entities";
 
 export interface GetSalesPresenter {
     displaySales(sales: Sale[]): void;

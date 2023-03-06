@@ -6,10 +6,15 @@
     "baseUrl": "./",
     "noEmit": true,
     "paths": {
+      "@frontend-clean-architecture/domain": [
+        "../../domain/lib"
+      ],
+      "@frontend-clean-architecture/adapters": [
+        "../../adapters/lib"
+      ],
       "@/*": ["./src/*"]
     }
   },
-
   "references": [
     {
       "path": "./tsconfig.node.json"

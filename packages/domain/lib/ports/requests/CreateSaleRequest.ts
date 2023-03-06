@@ -1,5 +1,5 @@
 import {SaleState} from "../../entities/SaleState";
-import {SaleLine} from "../../entities/SaleLine";
+import type {SaleLine} from "../../entities/SaleLine";
 import {Price} from "../../entities/Price";
 
 export class CreateSaleRequest {
