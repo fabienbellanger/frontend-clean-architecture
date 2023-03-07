@@ -1,16 +1,13 @@
 import {defineStore} from "pinia";
+import type {Sale} from "@frontend-clean-architecture/domain";
 
 export const useSaleStore = defineStore('sale', {
-    state: () => ({ count: 0 }),
-    getters: {
-        doubleCount: (state) => state.count * 2,
-    },
+    state: () => ({
+        sale: null as Sale | null
+    }),
     actions: {
-        getSale(id: string) {
-
-        },
-        increment() {
-            this.count++;
+        storeSale(sale: Sale) {
+            this.sale = sale;
         },
     },
 });

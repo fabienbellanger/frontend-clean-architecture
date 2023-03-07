@@ -2,7 +2,7 @@
     <main>
         <h1>Counter store</h1>
         <div><b>{{store.count}}</b></div>
-        <button v-on:click="store.increment()">Increment counter</button>
+        <button style="padding: 4px 8px" v-on:click="store.increment()">Increment counter</button>
     </main>
 </template>
 

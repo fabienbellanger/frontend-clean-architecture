@@ -27,6 +27,7 @@ export class SalePresenter extends Presenter<SalePresenterVM> implements GetSale
     displayError(err: Error) {
         this.vm.loading = false;
         this.vm.error = err;
+        this.vm.sale = undefined;
         this.notifyVM();
     }
 }
