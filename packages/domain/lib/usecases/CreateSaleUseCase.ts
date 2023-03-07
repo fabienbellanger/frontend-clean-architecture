@@ -34,7 +34,13 @@ export class CreateSaleUseCase {
     validate(request: CreateSaleRequest, presenter: CreateSalePresenter) {
         const errors = [] as CreateSaleErrors;
 
-        // TODO: Add errors
+        if (isNaN(Date.parse(request.date))) {
+            errors.push('sale date is not valid');
+        }
+
+        if (request.state !== 'open' && request.state !== 'partially_paid' && request.state !== 'paid') {
+            errors.push('sale state is not valid');
+        }
 
         presenter.notifyNewSaleError(errors);
         return errors;

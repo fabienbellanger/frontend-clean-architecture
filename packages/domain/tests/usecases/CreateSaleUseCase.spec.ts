@@ -1,48 +1,67 @@
-import {CreateSaleRequest, Sale} from "@frontend-clean-architecture/domain";
+import {CreateSaleErrors, CreateSaleRequest, Price, Sale, SaleState} from "@frontend-clean-architecture/domain";
 import {SaleRepositoryBuilder} from "../builders/SaleRepositoryBuilder";
 import {CreateSaleUseCase} from "../../lib/usecases/CreateSaleUseCase";
 import {CreateSalePresenterBuilder} from "../builders/CreateSalePresenterBuilder";
 
 describe('create new sale use case', () => {
-    test('display sale creation', () => {
-        return new Promise<Sale>(resolve => {
-            // Given
-            const saleRepository = new SaleRepositoryBuilder()
-                .withCreateSale((sale: Sale) => {
-                    resolve(sale);
-                    return Promise.resolve();
-                })
-                .build();
-            const useCase = new CreateSaleUseCase(saleRepository);
-            const presenter = new CreateSalePresenterBuilder()
-                .withNotifyNewSaleError(err => {})
-                .build();
-            const request = new CreateSaleRequest('1', '2023-03-', '10.0', 'open', '[]');
+    test('display sale creation with invalid date', async () => {
+        // Given
+        const saleRepository = new SaleRepositoryBuilder().build();
+        const useCase = new CreateSaleUseCase(saleRepository);
 
-            // When
-            useCase.execute(request, presenter);
-        }).then(sale => {
-            // Then
-            expect(sale).toBeNull();
+        // When
+        const errors: CreateSaleErrors = await new Promise(resolve => {
+            const presenter = new CreateSalePresenterBuilder()
+                .withNotifyNewSaleError(err => resolve(err))
+                .build();
+            const request = new CreateSaleRequest('1', 'tot', '10.0', 'open', '[]');
+
+            return useCase.execute(request, presenter);
         });
 
-        // Try:
+        // Then
+        expect(errors[0]).toEqual('sale date is not valid');
+    });
+
+    test('display sale creation with invalid state', async () => {
         // Given
-        // const cityRepository = new CityRepositoryBuilder().build()
-        // const useCase = new AddCityUseCase(cityRepository)
-        //
-        // // When
-        // const errors: AddCityErrors = await new Promise(resolve => {
-        //     const presentation = new AddCityPresentationBuilder()
-        //         .withNotifyNewCityInvalid((err: AddCityErrors) => {
-        //             resolve(err)
-        //         })
-        //         .build()
-        //     return useCase.execute(new AddCityRequest('', '-2', '13'), presentation)
-        // })
-        //
-        // // Then
-        // expect(errors.has(NewCityFields.cityName)).toBeTruthy()
-        // expect(errors.get(NewCityFields.cityName)).toBe('City name is required')
+        const saleRepository = new SaleRepositoryBuilder().build();
+        const useCase = new CreateSaleUseCase(saleRepository);
+
+        // When
+        const errors: CreateSaleErrors = await new Promise(resolve => {
+            const presenter = new CreateSalePresenterBuilder()
+                .withNotifyNewSaleError(err => resolve(err))
+                .build();
+            const request = new CreateSaleRequest('1', '2023-03-01', '10.0', 'opened', '[]');
+
+            return useCase.execute(request, presenter);
+        });
+
+        // Then
+        expect(errors[0]).toEqual('sale state is not valid');
+    });
+
+    test('display sale creation without error', async () => {
+        // Given
+        const saleRepository = new SaleRepositoryBuilder().build();
+        const useCase = new CreateSaleUseCase(saleRepository);
+
+        // When
+        const sale: Sale = await new Promise(resolve => {
+            const presenter = new CreateSalePresenterBuilder()
+                .withNotifySaleCreated(sale => resolve(sale))
+                .build();
+            const request = new CreateSaleRequest('1', '2023-03-01', '10.0', 'open', '[]');
+
+            return useCase.execute(request, presenter);
+        });
+
+        // Then
+        expect(sale.id).toEqual('1');
+        expect(sale.date).toEqual(new Date('2023-03-01'));
+        expect(sale.state).toEqual(SaleState.open);
+        expect(sale.priceAti).toEqual(new Price(10.0, 'EUR'));
+        expect(sale.lines).toEqual([]);
     });
 });
