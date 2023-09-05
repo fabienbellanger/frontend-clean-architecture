@@ -2,7 +2,8 @@ import type {GetSalePresenter, Sale} from "@frontend-clean-architecture/domain";
 import {Presenter} from "./Presenter";
 
 export class SalePresenterVM {
-    sale: Sale | undefined;
+    saleStore: Sale | undefined;
+    saleId: string | undefined;
     loading: boolean = false;
     error: Error | undefined;
 }
@@ -13,7 +14,8 @@ export class SalePresenter extends Presenter<SalePresenterVM> implements GetSale
     }
 
     displaySale(sale: Sale): void {
-        this.vm.sale = sale;
+        this.vm.saleStore = sale;
+        this.vm.saleId = sale.id;
         this.vm.loading = false;
         this.vm.error = undefined;
         this.notifyVM();
@@ -27,7 +29,8 @@ export class SalePresenter extends Presenter<SalePresenterVM> implements GetSale
     displayError(err: Error) {
         this.vm.loading = false;
         this.vm.error = err;
-        this.vm.sale = undefined;
+        this.vm.saleStore = undefined;
+        this.vm.saleId = undefined;
         this.notifyVM();
     }
 }
